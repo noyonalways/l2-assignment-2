@@ -1,0 +1,42 @@
+{
+  "name": "assignment-2",
+  "version": "1.0.0",
+  "description": "ExpressJS and TypeScript E-commerce Project",
+  "main": "./dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "start": "tsc && node ./dist/server.js",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "format:check": "prettier ./src --check",
+    "format": "prettier ./src --write",
+    "build": "tsc"
+  },
+  "keywords": [
+    "express",
+    "mongoose",
+    "typescript"
+  ],
+  "author": "Noyon Rahman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.5",
+    "morgan": "^1.10.0"
+  }
+}

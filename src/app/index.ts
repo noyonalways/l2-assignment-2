@@ -1,11 +1,11 @@
-import express from "express";
+import express, { Application } from "express";
 import cors from "cors";
 import morgan from "morgan";
 
 // local imports
 import rootRoutes from "./routes";
 
-const app = express();
+const app: Application = express();
 
 // middlewares
 app.use(morgan("dev"));

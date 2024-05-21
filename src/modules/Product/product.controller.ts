@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import productService from "./product.service";
+import ProductSchema from "./product.validate";
 
 // create product controller
 const createProduct = async (
@@ -8,7 +9,24 @@ const createProduct = async (
   next: NextFunction,
 ) => {
   try {
-    const product = await productService.createProduct({ ...req.body });
+    const { success, data, error } = ProductSchema.safeParse(req.body);
+
+    if (!success) {
+      const formattedErrors = error.issues.reduce(
+        (acc: Record<string, string>, issue) => {
+          acc[issue.path.join(".")] = issue.message;
+          return acc;
+        },
+        {},
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: formattedErrors,
+      });
+    }
+
+    const product = await productService.createProduct({ ...data });
     res.status(201).json({
       success: true,
       message: "Product created successfully!",

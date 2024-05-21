@@ -12,15 +12,15 @@ const getAllProducts = (): Promise<IProduct[]> => {
   return Product.find();
 };
 
+// get single product by property
 const getProductByProperty = (
   key: string,
   value: string,
 ): Promise<IProduct | null> => {
   if (key === "_id") {
-    if (!isValidObjectId(key)) {
+    if (!isValidObjectId(value)) {
       throw customError(false, 400, "Invalid productId");
     }
-
     return Product.findById(value);
   }
   return Product.findOne({ [key]: value });

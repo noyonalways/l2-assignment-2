@@ -1,0 +1,20 @@
+# to test the endpoints you need to install rest clinet vs extension
+
+GET http://localhost:4000/
+
+###
+
+GET http://localhost:4000/health
+
+###
+
+GET http://localhost:4000/api/products
+
+###
+
+GET http://localhost:4000/api/products?searchTerm=electronics
+
+###
+
+POST http://localhost:4000/api/products
+Content-Type: application/json

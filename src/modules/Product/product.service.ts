@@ -10,9 +10,17 @@ const createProduct = (data: IProduct) => {
 };
 
 // get all products form db
-const getAllProducts = () => {
-  // TODO: handle search query
-  return Product.find();
+const getAllProducts = (searchTerm: string) => {
+  if (!searchTerm) {
+    return Product.find();
+  }
+  return Product.find({
+    $or: [
+      { name: { $regex: searchTerm, $options: "i" } },
+      { description: { $regex: searchTerm, $options: "i" } },
+      { category: { $regex: searchTerm, $options: "i" } },
+    ],
+  });
 };
 
 // get single product by property from db

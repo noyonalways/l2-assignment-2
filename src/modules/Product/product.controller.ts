@@ -95,13 +95,20 @@ const updateSingleProduct = (
 };
 
 // delete single product controller
-const deleteSingleProduct = (
+const deleteSingleProduct = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    // TODO
+    const { productId } = req.params;
+    const result = await productService.deleteSingleProduct(productId);
+
+    res.status(200).json({
+      success: true,
+      message: "Product deleted successfully!",
+      data: result,
+    });
   } catch (err) {
     next(err);
   }

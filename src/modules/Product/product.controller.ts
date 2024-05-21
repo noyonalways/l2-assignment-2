@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import productService from "./product.service";
-import ProductSchema from "./product.validate";
+import productSchema from "./product.validate";
+import { IProduct } from "./product.interface";
 
 // create product controller
 const createProduct = async (
@@ -9,7 +10,7 @@ const createProduct = async (
   next: NextFunction,
 ) => {
   try {
-    const { success, data, error } = ProductSchema.safeParse(req.body);
+    const { success, data, error } = productSchema.safeParse(req.body);
 
     if (!success) {
       const formattedErrors = error.issues.reduce(
@@ -26,7 +27,9 @@ const createProduct = async (
       });
     }
 
-    const product = await productService.createProduct({ ...data });
+    const product = await productService.createProduct({
+      ...(data as IProduct),
+    });
     res.status(201).json({
       success: true,
       message: "Product created successfully!",
@@ -82,13 +85,47 @@ const getSingleProduct = async (
 };
 
 // update single product controller
-const updateSingleProduct = (
+const updateSingleProduct = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    // TODO
+    const { productId } = req.params;
+    const { success, data, error } = productSchema
+      .partial()
+      .safeParse(req.body);
+
+    if (!success) {
+      const formattedErrors = error.issues.reduce(
+        (acc: Record<string, string>, issue) => {
+          if (issue.code === "unrecognized_keys") {
+            issue.keys.forEach((key) => {
+              acc[key] = `Unrecognized key: '${key}'`;
+            });
+          } else {
+            acc[issue.path.join(".")] = issue.message;
+          }
+          return acc;
+        },
+        {},
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: formattedErrors,
+      });
+    }
+
+    const result = await productService.updateSingleProduct(productId, {
+      ...(data as IProduct),
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Product updated successfully!",
+      data: result,
+    });
   } catch (err) {
     next(err);
   }

@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { IInventory, IProduct, IVariant } from "./product.interface";
 
-const VariantSchema = new Schema<IVariant>({
+const variantSchema = new Schema<IVariant>({
   type: {
     type: String,
     required: [true, "variant type is required"],
@@ -12,7 +12,7 @@ const VariantSchema = new Schema<IVariant>({
   },
 });
 
-const InventorySchema = new Schema<IInventory>({
+const inventorySchema = new Schema<IInventory>({
   quantity: {
     type: Number,
     required: [true, "inventory quantity is required"],
@@ -20,10 +20,18 @@ const InventorySchema = new Schema<IInventory>({
   inStock: {
     type: Boolean,
     required: [true, "inventory inStock is required"],
+    default: function () {
+      return this.quantity > 0;
+    },
   },
 });
 
-const ProductSchema = new Schema<IProduct>({
+inventorySchema.pre("save", function (next) {
+  this.inStock = this.quantity > 0;
+  next();
+});
+
+const productSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: [true, "product name is required"],
@@ -52,14 +60,14 @@ const ProductSchema = new Schema<IProduct>({
     required: [true, "product tags is required"],
   },
   variants: {
-    type: [VariantSchema],
+    type: [variantSchema],
     required: [true, "product variants is required"],
   },
   inventory: {
-    type: InventorySchema,
+    type: inventorySchema,
     required: [true, "product inventory is required"],
   },
 });
 
-const Product = model<IProduct>("Product", ProductSchema);
+const Product = model<IProduct>("Product", productSchema);
 export default Product;

@@ -4,12 +4,12 @@ const router: Router = Router();
 
 /**
  * Product Routes:
- * - /api/products GET
- * - /api/products POST
- * - /api/products/:productId GET
- * - /api/products/:productId UPDATE
- * - /api/products/:productId DELETE
- * - /api/products?searchTerm=product_name GET
+ * DONE: - /api/products GET
+ * DONE: - /api/products POST
+ * DONE: - /api/products/:productId GET
+ * DONE: - /api/products/:productId UPDATE
+ * DONE: - /api/products/:productId DELETE
+ * TODO: - /api/products?searchTerm=product_name GET
  */
 
 router

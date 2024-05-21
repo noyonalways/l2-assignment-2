@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { TCustomError } from "../types";
 import productRoutes from "../modules/Product/product.routes";
+import orderRoutes from "../modules/Order/order.routes";
 const router: Router = Router();
 
 router.get("/", (_req: Request, res: Response) => {
@@ -15,6 +16,7 @@ router.get("/health", (_req: Request, res: Response) => {
 
 // main routes
 router.use("/api/products", productRoutes);
+router.use("/api/orders", orderRoutes);
 
 router.use((_req: Request, _res: Response, next: NextFunction) => {
   const err: TCustomError = new Error("Route not found");

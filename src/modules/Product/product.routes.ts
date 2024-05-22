@@ -9,7 +9,7 @@ const router: Router = Router();
  * DONE: - /api/products/:productId GET
  * DONE: - /api/products/:productId UPDATE
  * DONE: - /api/products/:productId DELETE
- * TODO: - /api/products?searchTerm=product_name GET
+ * DONE: - /api/products?searchTerm=product_name GET
  */
 
 router

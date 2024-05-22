@@ -17,11 +17,15 @@
             Simple E-commerce Application
         </a>
     </h3>
+    
 </p>
 
-<a href="https://simple-ecom-backend.vercel.app/" target="_blank" >
-    <img alt="Static Badge" src="https://img.shields.io/badge/Live_Server-Link-link?style=flat">
-</a><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fsimple-ecom-backend.vercel.app">
+<div align="center" style='margin: 5px 0px'>
+    <a href="https://simple-ecom-backend.vercel.app/" target="_blank" >
+        <img alt="Static Badge" src="https://img.shields.io/badge/Live_Server-Link-link?style=flat">
+    </a>
+    <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fsimple-ecom-backend.vercel.app">
+</div>
 
 ## Description:
 

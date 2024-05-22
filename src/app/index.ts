@@ -11,6 +11,7 @@ const app: Application = express();
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 // application routes
 app.use(rootRoutes);

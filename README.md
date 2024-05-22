@@ -19,6 +19,11 @@
     </h3>
 </p>
 
+<a href="https://simple-ecom-backend.vercel.app/" target="_blank" >
+    <img alt="Static Badge" src="https://img.shields.io/badge/Live_Server-Link-link?style=flat">
+</a>
+<img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fsimple-ecom-backend.vercel.app">
+
 ## Description:
 
 A Simple E-commerce Back-end Application. There are several features available in this application

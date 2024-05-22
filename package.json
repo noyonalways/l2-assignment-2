@@ -2,16 +2,16 @@
   "name": "assignment-2",
   "version": "1.0.0",
   "description": "ExpressJS and TypeScript E-commerce Project",
-  "main": "./dist/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node ./dist/server.js",
     "start:prod": "node ./dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "build": "tsc",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "format:check": "prettier ./src --check",
-    "format": "prettier ./src --write",
-    "build": "tsc"
+    "format": "prettier ./src --write"
   },
   "keywords": [
     "express",

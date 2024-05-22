@@ -4,11 +4,14 @@
 [![Instagram][instagram-shield]][instagram-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![VS Code Theme][vscode-shield]][vscode-theme-url]
+[![NPM Package][npm-shield]][npm-package-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <img src="https://i.ibb.co/c64q254/noyon-logo-dark.png" alt="Logo" width="80" height="80" />
+    <a href="https://portfolio-noyonalways.vercel.app/">
+        <img src="https://i.ibb.co/c64q254/noyon-logo-dark.png" alt="Logo" width="80" height="80"/>
+    </a>
     <h3 align="center">
         <a href="https://github.com/noyonalways/l2-assignment-2" target="_blank" >
             Simple E-commerce Application
@@ -34,6 +37,45 @@ A Simple E-commerce Back-end Application. There are several features available i
 - POST: We can create a new product
 - GET: We can get a list of all products
 - GET: We can get a list of all products by using 'email=user_email_address'
+
+## Run Locally:
+
+To run the Simple E-commerce Back-end Application locally, follow these steps:
+
+### 1. Clone the repository from GitHub:
+
+```sh
+git clone https://github.com/noyonalways/l2-assignment-2.git
+```
+
+### 2. Navigate into the project directory:
+
+```sh
+cd l2-assignment-2
+```
+
+### 3. Install dependencies (npm or yarn):
+
+```sh
+npm install
+```
+
+or
+
+```sh
+yarn
+```
+
+### 4. Set up environment variables:
+
+- Create a .env file in the root directory.
+- Define necessary environment variables such as database connection URL, PORT, etc. Refer to any provided `.env.example` file or documentation for required variables.
+
+```sh
+PORT=
+DATABASE_URL=
+NODE_ENV=development
+```
 
 ## Available Endpoints:
 
@@ -70,3 +112,5 @@ A Simple E-commerce Back-end Application. There are several features available i
 [linkedin-url]: https://linkedin.com/in/noyonalways
 [vscode-shield]: https://img.shields.io/badge/-VS%20Code%20Theme-black.svg?style=round-square&logo=visualstudiocode&colorB=555
 [vscode-theme-url]: https://marketplace.visualstudio.com/items?itemName=noyonalways.codevibe-themes
+[npm-shield]: https://img.shields.io/badge/-Package-black.svg?style=round-square&logo=npm&color=555&logoColor=white
+[npm-package-url]: https://www.npmjs.com/package/the-magic-readme

@@ -30,10 +30,6 @@ const createOrder = async (data: IOrder) => {
   product.inventory.inStock = product.inventory.quantity > 0;
   await product.save();
 
-  // product.inventory.quantity -= data.quantity;
-  // product.inventory.inStock = product.inventory.quantity > 0;
-  // await productService.updateSingleProduct(data.productId, product);
-
   const order = new Order({ ...data, price: product.price });
   return order.save();
 };

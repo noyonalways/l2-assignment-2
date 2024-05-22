@@ -10,7 +10,7 @@
 <p align="center">
     <img src="https://i.ibb.co/c64q254/noyon-logo-dark.png" alt="Logo" width="80" height="80" />
     <h3 align="center">
-        <a href="https://github.com/noyonalways/express-typescript-starter" target="_blank" >
+        <a href="https://github.com/noyonalways/l2-assignment-2" target="_blank" >
             Simple E-commerce Application
         </a>
     </h3>
@@ -18,7 +18,39 @@
 
 ## Description:
 
-ExpressJS and TypeScript Starter Project With ESLint and Prettier.
+A Simple E-commerce Back-end Application. There are several features available in this application
+
+### Product:
+
+- POST: We can create a new product
+- GET: We can get a list of all products
+- GET: We can get a list of products by using 'searchTerm=product_name_or_category'
+- GET: We can get a single product by productId '(\_id)'
+- PUT: We can update a single product by productId (\_id)'
+- DELETE: We can delete a single product by productId '(\_id)'
+
+### Order:
+
+- POST: We can create a new product
+- GET: We can get a list of all products
+- GET: We can get a list of all products by using 'email=user_email_address'
+
+## Available Endpoints:
+
+### Product:
+
+- `/api/products` **POST**
+- `/api/products` **GET**
+  - `/api/products?searchTerm=product_name_or_category`
+- `/api/products/:productId` **GET**
+- `/api/products/:productId` **PUT**
+- `/api/products/:productId` **DELETE**
+
+### Order:
+
+- `/api/orders` **POST**
+- `/api/orders` **GET**
+- `/api/orders?email=user_email_address`
 
 ## Contact
 

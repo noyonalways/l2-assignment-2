@@ -2,19 +2,81 @@
 
 GET http://localhost:4000/
 
-###
+### Check Server Health
 
 GET http://localhost:4000/health
 
-###
+### GET All Products
 
 GET http://localhost:4000/api/products
 
-###
+### GET Products by searchTerm
 
 GET http://localhost:4000/api/products?searchTerm=electronics
 
-###
+### CREATE A Product
 
 POST http://localhost:4000/api/products
 Content-Type: application/json
+
+{
+    "name": "Gaming Keyboard",
+    "description": "Mechanical gaming keyboard with RGB backlight.",
+    "price": 89.99,
+    "category": "Electronics",
+    "tags": ["gaming", "keyboard", "mechanical", "RGB"],
+    "variants": [
+      {
+        "type": "switch",
+        "value": "Blue"
+      },
+      {
+        "type": "switch",
+        "value": "Red"
+      }
+    ],
+    "inventory": {
+      "quantity": 40,
+      "inStock": true
+    }
+  }
+
+### GET Single Product
+
+GET http://localhost:4000/api/products/664d704d17aa632a8adf6b5e
+
+### UPDATE Single Product
+
+PUT http://localhost:4000/api/products/664d704d17aa632a8adf6b5e
+Content-Type: application/json
+
+{
+  "inventory": {
+    "quantity": 100
+  }
+}
+
+### DELETE Single Product
+
+DELETE http://localhost:4000/api/products/
+
+### Create A Order
+
+POST http://localhost:4000/api/orders/
+Content-Type: application/json
+
+{
+  "email": "shakil@example.com",
+  "productId": "664d704d17aa632a8adf6b5e",
+  "price": 80,
+  "quantity": 50
+}
+
+### GET All Orders
+
+GET http://localhost:4000/api/orders
+
+### GET Order by email
+
+GET http://localhost:4000/api/orders?email=noyon@example.com
+

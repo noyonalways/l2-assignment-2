@@ -28,10 +28,10 @@ const productSchema = z
       .min(15, "product description must be more than 15 characters"),
     price: z
       .number({
-        invalid_type_error: "product price must be a number",
-        required_error: "product price is required",
+        invalid_type_error: "price must be a number",
+        required_error: "price is required",
       })
-      .min(0, "product price must be greater than 0"),
+      .positive({ message: "price must be grater than 0" }),
     category: z.string({ message: "Product category is required" }),
     tags: z.array(z.string({ message: "Product tags is" })),
     variants: z.array(variantSchema, { message: "variants is required" }),

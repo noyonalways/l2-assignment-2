@@ -2,7 +2,12 @@ import { z } from "zod";
 
 const OrderSchema = z
   .object({
-    email: z.string().email({ message: "provide a valid email address" }),
+    email: z
+      .string({
+        invalid_type_error: "provide a valid email",
+        required_error: "email is required",
+      })
+      .email({ message: "provide a valid email address" }),
     productId: z.string({
       invalid_type_error: "provide a valid productId",
       required_error: "product is required",

@@ -4,9 +4,9 @@ const router: Router = Router();
 
 /**
  * Order routes
- * - /api/orders POST
- * - /api/orders GET
- * - /api/orders?email=user_email_address GET
+ * DONE: - /api/orders POST
+ * DONE: - /api/orders GET
+ * DONE: - /api/orders?email=user_email_address GET
  */
 
 router

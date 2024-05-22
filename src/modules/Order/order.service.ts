@@ -38,8 +38,11 @@ const createOrder = async (data: IOrder) => {
   return order.save();
 };
 
-const getAllOrders = () => {
-  return Order.find();
+const getAllOrders = (email: string) => {
+  if (!email) {
+    return Order.find();
+  }
+  return Order.find({ email });
 };
 
 export default {
